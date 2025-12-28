@@ -5,7 +5,7 @@ import './nav.css'
 const menu = [
   { name: "HOME", path: "/" },
   { name: "INTRO", path: "/about" },
-  { name: "PROJECT", path: "/project" },
+  { name: "PROJECT", path: "/projectt" },
 ];
 
 const RekorderNavbar = () => {
@@ -13,7 +13,7 @@ const RekorderNavbar = () => {
   const location = useLocation();
 
   return (
-    <div className=" navbar  top-4 left-1/2 -translate-x-1/2 z-50">
+    <div className=" navbar fixed top-4 left-1/2 -translate-x-1/2 z-50">
       <div
         onMouseEnter={() => window.innerWidth >= 768 && setOpen(true)}
         onMouseLeave={() => window.innerWidth >= 768 && setOpen(false)}

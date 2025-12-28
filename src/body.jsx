@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import Technologies from "./Component/Tech/Tech";
 import Education from "./Component/Education/Education";
 import ProjectTechSection from "./Component/ProjectTechSection/ProjectTechSection";
+import ProjectShowcase from "./Component/ProjectShowcase/ProjectShowcase";
 function Body() {
   const [loading, setLoading] = useState(true);
 useEffect(() => {
@@ -175,7 +176,9 @@ useEffect(() => {
       <section className="section-four">
         <ProjectTechSection></ProjectTechSection>
       </section>
-     
+     <section>
+      <ProjectShowcase></ProjectShowcase>
+     </section>
     </LenisScroll>
   );
 }

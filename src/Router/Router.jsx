@@ -5,6 +5,9 @@ import Project from "../Component/Project/Projectt.jsx";
 import About from "../Component/About/about.jsx";
 import ErrorPage from "../Component/Error/Error.jsx";
 import Intro from "../Component/intro/intro.jsx";
+import ProjectDetailPage from "../Component/ProjectDetail/ProjectDetailPage.jsx";
+import ProjectsPage from "../Component/ProjectShowcase/ProjectShowcase.jsx";
+import ProjectPage from "../Optional/ProjectPage.jsx";
  const ErrorWrapper = () => <ErrorPage />;
 const Router = createBrowserRouter([
   {
@@ -13,9 +16,10 @@ const Router = createBrowserRouter([
     errorElement: <ErrorWrapper />,
     children: [
       { index: true, element: <Body /> },
-      {path:"project", element:<Project></Project>},
       {path:"/about", element:<Intro></Intro>},
-     
+      {path:"project" , element:<ProjectsPage></ProjectsPage>},
+      {path:"project/:id", element:<ProjectDetailPage></ProjectDetailPage>},
+     {path:"/projectt", element:<ProjectPage></ProjectPage>},
     ],
   },
 ]);
