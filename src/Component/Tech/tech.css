@@ -1,0 +1,7 @@
+.tech-card img {
+  transition: transform 0.5s ease;
+}
+
+.tech-card:hover img {
+  transform: scale(1.05);
+}

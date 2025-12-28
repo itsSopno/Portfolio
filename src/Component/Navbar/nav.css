@@ -1,0 +1,7 @@
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap');
+
+.navbar{
+    font-family: 'Smooch Sans', sans-serif;
+    justify-content: center;
+}

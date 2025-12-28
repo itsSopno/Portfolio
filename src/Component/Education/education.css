@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap');
+.education{
+    font-family: 'Smooch Sans', sans-serif;
+   display: flex;
+   flex-direction: column;
+   padding-left: 30px;
+}

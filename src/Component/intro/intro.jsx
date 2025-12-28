@@ -1,0 +1,113 @@
+import React from "react";
+import { motion } from "framer-motion";
+import "./intro.css";
+import image from './intro.jpg';
+import Education from "../Education/Education";
+const Intro = () => {
+  return (
+    <>
+    <section className="intro-section rounded-tr-4xl rounded-tl-4xl rounded-br-4xl rounded-bl-4xl bg-[#000]">
+      
+      {/* LEFT CONTENT */}
+      <div className="intro-left">
+        <motion.h1
+          className="intro-title"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          INTRO
+        </motion.h1>
+
+        <motion.p
+          className="intro-text"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+        >
+          I’m a <span>MERN Stack Developer</span> focused on building scalable,
+          performance-driven web applications with clean architecture and
+          intuitive user experiences.
+        </motion.p>
+
+        <motion.p
+          className="intro-text"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+        >
+          I enjoy working across the full stack — from crafting responsive
+          front-end interfaces in React to designing robust backend systems with
+          Node.js, Express, and MongoDB.
+        </motion.p>
+
+        <motion.p
+          className="intro-text"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+        >
+          My goal is to turn complex ideas into reliable, maintainable digital
+          products that deliver real value.
+        </motion.p>
+
+        {/* LINKS */}
+        <div className="intro-links">
+          <motion.a
+            href="nabiltalukderbd@gmail.com"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
+          >
+            Email ↗
+          </motion.a>
+          <motion.a
+            href="https://linkedin.com"
+            target="_blank"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 1, ease: "easeOut" }}
+          >
+            LinkedIn ↗
+          </motion.a>
+          <motion.a
+            href="https://github.com/itsSopno"
+            target="_blank"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 1.2, ease: "easeOut" }}
+          >
+            GitHub ↗
+          </motion.a>
+        </div>
+      </div>
+
+      {/* RIGHT CONTENT */}
+      <motion.div
+        className="intro-right"
+        initial={{ opacity: 0, scale: 0.8, y: 40 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+      >
+        <div className="image-wrapper">
+          <img src={image} alt="Profile" />
+        </div>
+      </motion.div>
+
+    </section>
+    <section>
+<Education></Education>
+    </section>
+    </>
+  );
+};
+
+export default Intro;
