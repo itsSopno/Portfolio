@@ -29,7 +29,7 @@ const card = {
 
 const Education = () => {
   return (
-    <section className="education min-h-screen bg-black text-zinc-300 px-4 sm:px-6 py-24">
+    <section className="education min-h-screen  text-zinc-300 px-4 sm:px-6 py-24">
       <div className="max-w-6xl pl-[40px]">
 
         {/* Title */}

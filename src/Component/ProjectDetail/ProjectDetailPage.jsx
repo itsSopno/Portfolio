@@ -65,12 +65,19 @@ const ProjectDetailPage = () => {
           <motion.div variants={fadeInUp} className="md:col-span-3 space-y-10 order-2 md:order-1 border-l border-white/10 pl-6">
             <div className="space-y-1">
               <p className="text-[10px] uppercase tracking-[0.3em] text-gray-500">Year</p>
-              <p className="text-sm font-light italic">2024</p> 
+              <p className="text-sm font-light italic">{project.year}</p> 
             </div>
             <div className="space-y-1">
               <p className="text-[10px] uppercase tracking-[0.3em] text-gray-500">Live Site</p>
               <a href={project.live} target="_blank" rel="noreferrer" className="text-sm font-light hover:line-through transition-all">
                 Project Link ↗
+              </a>
+                
+            </div>
+             <div className="space-y-1">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-gray-500">Client Repo</p>
+              <a href={project.clientRepo} target="_blank" rel="noreferrer" className="text-sm font-light hover:line-through transition-all">
+                Client Repo ↗
               </a>
                 
             </div>

@@ -1,87 +1,193 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Html5, Css3, Javascript, ReactLogo, GitBranch } from "lucide-react";
+import TriangleBG from "./Component/Triangleee/Triangle ";
+import LenisScroll from "./lenisScroll";
+import TriangleLoader from "./TriangleLoader";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import About from "./Component/About/about";
+import "./App.css";
+import { Link } from "react-router-dom";
+import Technologies from "./Component/Tech/Tech";
+import Education from "./Component/Education/Education";
+import ProjectTechSection from "./Component/ProjectTechSection/ProjectTechSection";
+import ProjectShowcase from "./Component/ProjectShowcase/ProjectShowcase";
+function Body() {
+  const [loading, setLoading] = useState(true);
+ 
+useEffect(() => {
+  if (loading) return;
 
-// All techs
-const techs = [
-  { name: "HTML5", icon: Html5 },
-  { name: "CSS3", icon: Css3 },
-  { name: "JavaScript", icon: Javascript },
-  { name: "React", icon: ReactLogo },
-  { name: "Git", icon: GitBranch },
-];
+  gsap.registerPlugin(ScrollTrigger);
 
-// Projects
-const projects = [
-  {
-    name: "Portfolio Website",
-    techs: ["HTML5", "CSS3", "JavaScript", "React"],
-  },
-  {
-    name: "E-commerce App",
-    techs: ["React", "CSS3", "Git"],
-  },
-  {
-    name: "Blog Platform",
-    techs: ["HTML5", "CSS3", "JavaScript", "Git"],
-  },
-];
+  const ctx = gsap.context(() => {
+    gsap.from(".section-two", {
+      scrollTrigger: {
+        trigger: ".section-two",
+        start: "top 80%",
+        end: "bottom 60%",
+        scrub: true,
+      },
+      opacity: 0,
+      y: 150,
+      ease: "power4.out",
+    });
+     gsap.from(".section-three", {
+      scrollTrigger: {
+        trigger: ".section-three",
+        start: "top 80%",
+        end: "bottom 60%",
+        scrub: true,
+      },
+      opacity: 0,
+      y: 150,
+      ease: "power4.out",
+    });
+     gsap.from(".section-four", {
+      scrollTrigger: {
+        trigger: ".section-four",
+        start: "top 80%",
+        end: "bottom 60%",
+        scrub: true,
+      },
+      opacity: 0,
+      y: 150,
+      ease: "power4.out",
+    });
+  });
 
-const ProjectTechSection = () => {
-  const [activeProject, setActiveProject] = useState(null);
+  ScrollTrigger.refresh();
+
+  return () => ctx.revert();
+}, [loading]);
+
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 3000); // 3s loader
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) return <TriangleLoader />;
 
   return (
-    <section className="bg-black text-zinc-300 px-6 py-28">
-      <div className="max-w-6xl mx-auto">
+    <>
+    <LenisScroll>
+      {/* Hero Section */}
+    
+   <section className="section-one relative w-full min-h-screen flex flex-col justify-center items-center bg-[#0a0a0a] overflow-hidden rounded-3xl px-4 sm:px-6 lg:px-10">
 
-        <h2 className="text-5xl font-extrabold text-white mb-16">
-          Projects & Technologies
-        </h2>
+  {/* Main Title */}
+  <motion.h1
+    className="
+      text-[72px]
+      sm:text-[100px]
+      md:text-[140px]
+      lg:text-[180px]
+      xl:text-[220px]
+      font-bold
+      mb-2
+      text-white
+      text-center
+      leading-none
+    "
+    style={{ fontFamily: "Smooch Sans" }}
+    initial={{ opacity: 0, y: 60 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1, ease: "easeOut" }}
+  >
+    PORTFOLIO
+  </motion.h1>
 
-        {/* Tech Icons */}
-        <div className="flex flex-wrap gap-6 mb-16">
-          {techs.map(({ name, icon: Icon }) => (
-            <motion.div
-              key={name}
-              animate={{
-                opacity:
-                  !activeProject || activeProject.techs.includes(name) ? 1 : 0.2,
-                scale: activeProject?.techs.includes(name) ? 1.1 : 1,
-              }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col items-center justify-center w-20 h-20 bg-zinc-950 rounded-xl border border-zinc-800 p-4"
-            >
-              <Icon size={32} className="text-lime-400 mb-2" />
-              <span className="text-white text-sm">{name}</span>
-            </motion.div>
-          ))}
-        </div>
+  {/* Role */}
+  <motion.h2
+    className="
+      text-[20px]
+      sm:text-[24px]
+      md:text-[28px]
+      lg:text-[32px]
+      text-white
+      font-medium
+      tracking-wide
+      mb-4
+      text-center
+    "
+    style={{ fontFamily: "Smooch Sans" }}
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+  >
+    MERN Stack Developer
+  </motion.h2>
 
-        {/* Projects */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          {projects.map((project, i) => (
-            <motion.div
-              key={i}
-              onHoverStart={() => setActiveProject(project)}
-              onHoverEnd={() => setActiveProject(null)}
-              onTap={() => setActiveProject(project)} // Mobile tap
-              className="bg-zinc-950 border border-zinc-800 rounded-2xl p-6 cursor-pointer
-                         hover:border-lime-400/40 transition-colors"
-              whileHover={{ y: -6 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              <h3 className="text-xl font-semibold text-white mb-2">
-                {project.name}
-              </h3>
-              <p className="text-zinc-400 text-sm">
-                {project.techs.join(", ")}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+  {/* Description */}
+  <motion.p
+    className="
+      max-w-3xl
+      text-[16px]
+      sm:text-[18px]
+      md:text-[20px]
+      lg:text-[22px]
+      text-white/75
+      text-center
+      leading-relaxed
+    "
+    style={{ fontFamily: "Smooch Sans" }}
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+  >
+    I design and develop scalable full-stack web applications using MongoDB,
+    Express.js, React, and Node.js — focusing on performance, clean architecture,
+    and intuitive user experiences.
+  </motion.p>
+
+  {/* CTA Buttons */}
+  <motion.div
+    className="
+      mt-6
+      sm:mt-8
+      flex
+      flex-col
+      sm:flex-row
+      gap-4
+    "
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1, delay: 0.9 }}
+  >
+    <button className="px-6 py-3 border border-white text-white rounded-full hover:bg-white hover:text-black transition">
+     <Link to="project"> View Projects</Link>
+    </button>
+    <button className="px-6 py-3 text-white/70 hover:text-white transition">
+      Contact Me
+    </button>
+  </motion.div>
+
+  {/* Background */}
+  <TriangleBG />
+</section>
+
+
+
+    
+      <section className="section-two bg-[#000] w-full h-auto ">
+       <About></About>
+      </section>
+      <section className="section-three">
+        <Education></Education>
+      </section>
+      <section className="section-four">
+        <ProjectTechSection></ProjectTechSection>
+      </section>
+     <section>
+      <ProjectShowcase></ProjectShowcase>
+     </section>
+    </LenisScroll>
+     <div className="fixed bottom-[-5%] left-[-5%] text-[20vw] font-black text-white/[0.02] pointer-events-none select-none italic">
+        NABIL
       </div>
-    </section>
+    </>
   );
-};
+}
 
-export default ProjectTechSection;
+export default Body;

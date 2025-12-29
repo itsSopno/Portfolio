@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
-
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className=" text-zinc-300 border-t border-zinc-800">
@@ -32,16 +32,9 @@ const Footer = () => {
         >
           <h4 className="text-white font-medium mb-3">Quick Links</h4>
           <ul className="space-y-2 text-sm">
-            {["Home", "About", "Projects", "Contact"].map((item) => (
-              <li key={item}>
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  className="hover:text-white transition"
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/projects">Projects</Link></li>
           </ul>
         </motion.div>
 

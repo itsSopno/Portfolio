@@ -59,7 +59,7 @@ const hoverCard = {
 const TechnologyOnly = () => {
   return (
     <>
-    <section className="bg-black text-zinc-300 px-4 sm:px-6 py-28">
+    <section className=" text-zinc-300 px-4 sm:px-6 py-28">
       <div className="max-w-6xl pl-[40px]">
 
         {/* Section Title mx-auto*/}
