@@ -127,7 +127,7 @@ function Body() {
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 1, delay: 0.9 }}
   >
-    <Link to="project" className="px-8 py-3.5 bg-white text-black font-bold rounded-full hover:bg-[#c6ff33] hover:scale-105 transition-all duration-300 shadow-lg uppercase text-xs tracking-widest">
+    <Link to="projectt" className="px-8 py-3.5 bg-white text-black font-bold rounded-full hover:bg-[#c6ff33] hover:scale-105 transition-all duration-300 shadow-lg uppercase text-xs tracking-widest">
       View Project
     </Link>
     <button className="px-8 py-3.5 border border-white/20 text-white rounded-full hover:bg-white/5 transition-all duration-300 text-xs tracking-widest uppercase">

@@ -84,15 +84,15 @@ if (!project || !Array.isArray(project.technology)) {
 
         {/* LINKS */}
         <div className="about-links">
-          <motion.a
-            href="nabiltalukderbd@gmail.com"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
-          >
-            Email ↗
-          </motion.a>
+        <motion.a
+  href="mailto:nabiltalukderbd@gmail.com" 
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
+>
+  Email ↗
+</motion.a>
           <motion.a
             href="https://linkedin.com"
             target="_blank"
@@ -114,20 +114,32 @@ if (!project || !Array.isArray(project.technology)) {
             GitHub ↗
           </motion.a>
         </div>
-         {project && (
-  <motion.div variants={fadeInUp} className="md:col-span-4 md:col-start-9">
-    <h3 className="text-[50px] pt-[20px] uppercase tracking-[0.4em] text-gray-600 mb-8 font-bold italic">
+      {project && (
+  <motion.div 
+    variants={fadeInUp} 
+    initial="initial"
+    whileInView="animate"
+    viewport={{ once: true }}
+    className="md:col-span-4 md:col-start-9 p-4"
+  >
+   
+    <h3 className="text-3xl md:text-5xl pt-4 uppercase tracking-widest text-gray-500 mb-8 font-extrabold italic opacity-80">
       Skills I have
     </h3>
 
-    <div className="flex flex-wrap gap-2">
+    {/* Skills Container */}
+    <div className="flex flex-wrap gap-3">
       {project.technology.map((tech, index) => (
-        <span
+        <motion.span
           key={index}
-          className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[20px] uppercase tracking-[0.2em] text-gray-400 hover:bg-white hover:text-black transition-all"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ delay: index * 0.1 }}
+          whileHover={{ scale: 1.1, y: -5 }}
+          className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm md:text-base uppercase tracking-wider text-gray-300 backdrop-blur-sm cursor-default hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 hover:text-white hover:border-transparent transition-all duration-300 shadow-xl"
         >
           {tech}
-        </span>
+        </motion.span>
       ))}
     </div>
   </motion.div>

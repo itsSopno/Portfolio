@@ -34,7 +34,7 @@ const Footer = () => {
           <ul className="space-y-2 text-sm">
           <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>
-          <li><Link to="/projects">Projects</Link></li>
+          <li><Link to="/project">Projects</Link></li>
           </ul>
         </motion.div>
 
