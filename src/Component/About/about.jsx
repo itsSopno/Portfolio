@@ -54,7 +54,7 @@ if (!project || !Array.isArray(project.technology)) {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
         >
-          I’m a <span>MERN Stack Developer</span> focused on building scalable,
+          I’m a <span>MERN Stack Developer(Junior)</span> focused on building scalable,
           performance-driven web applications with clean architecture and
           intuitive user experiences.
         </motion.p>
