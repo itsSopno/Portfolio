@@ -9,23 +9,7 @@ const About = () => {
   //   .then((res) => res.json())
   //   .then((data) => { setLoading(data);
   // }, []);
- const [project, setProject] = useState(null);
 
-useEffect(() => {
-  fetch("https://server-1-1-6g3a.onrender.com/project")
-    .then(res => res.json())
-    .then(data => {
-      setProject(data[0]); // বা find করে নিলে ভালো
-    })
-    .catch(console.error);
-}, []);
-if (!project || !Array.isArray(project.technology)) {
-  return (
-    <section className="about-section">
-      <p className="text-white p-20">Loading stack...</p>
-    </section>
-  );
-}
 
  const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
@@ -114,7 +98,6 @@ if (!project || !Array.isArray(project.technology)) {
             GitHub ↗
           </motion.a>
         </div>
-      {project && (
   <motion.div 
     variants={fadeInUp} 
     initial="initial"
@@ -122,14 +105,14 @@ if (!project || !Array.isArray(project.technology)) {
     viewport={{ once: true }}
     className="md:col-span-4 md:col-start-9 p-4"
   >
-   
     <h3 className="text-3xl md:text-5xl pt-4 uppercase tracking-widest text-gray-500 mb-8 font-extrabold italic opacity-80">
       Skills I have
     </h3>
 
     {/* Skills Container */}
     <div className="flex flex-wrap gap-3">
-      {project.technology.map((tech, index) => (
+      {/* এখানে আপনার নির্দিষ্ট স্কিলগুলো সরাসরি বসিয়ে দেওয়া হয়েছে */}
+      {["React JS", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "JWT Authentication"].map((tech, index) => (
         <motion.span
           key={index}
           initial={{ opacity: 0, scale: 0.8 }}
@@ -143,7 +126,6 @@ if (!project || !Array.isArray(project.technology)) {
       ))}
     </div>
   </motion.div>
-)}
 
       </div>
 
