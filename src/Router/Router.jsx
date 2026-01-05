@@ -9,6 +9,7 @@ import ProjectDetailPage from "../Component/ProjectDetail/ProjectDetailPage.jsx"
 import ProjectsPage from "../Component/ProjectShowcase/ProjectShowcase.jsx";
 import ProjectPage from "../Optional/ProjectPage.jsx";
 import ContactSection from "../Component/ContactSection/ContactSection.jsx";
+import DetailPage from "../Component/Detailpage/DetailPage.jsx";
  const ErrorWrapper = () => <ErrorPage />;
 const Router = createBrowserRouter([
   {
@@ -20,8 +21,9 @@ const Router = createBrowserRouter([
       {path:"/about", element:<Intro></Intro>},
       {path:"project" , element:<ProjectsPage></ProjectsPage>},
       {path:"project/:id", element:<ProjectDetailPage></ProjectDetailPage>},
-     {path:"/projectt", element:<ProjectPage></ProjectPage>},
-     {path: "/contact", element:<ContactSection></ContactSection>}
+     {path:"/projectt", element:<DetailPage></DetailPage>},
+     {path: "/contact", element:<ContactSection></ContactSection>},
+  
     ],
   },
 ]);

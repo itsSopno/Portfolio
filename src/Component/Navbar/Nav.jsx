@@ -6,6 +6,7 @@ const menu = [
   { name: "HOME", path: "/" },
   { name: "INTRO", path: "/about" },
   { name: "PROJECTS", path: "/projectt" },
+  // {name:"Detail" , path:"/detail"}
 ];
 
 const RekorderNavbar = () => {

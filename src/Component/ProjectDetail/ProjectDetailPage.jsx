@@ -77,7 +77,7 @@ const ProjectDetailPage = () => {
              <div className="space-y-1">
               <p className="text-[10px] uppercase tracking-[0.3em] text-gray-500">Client Repo</p>
               <a href={project.clientRepo} target="_blank" rel="noreferrer" className="text-sm font-light hover:line-through transition-all">
-                Client Repo ↗
+                Github Repo ↗
               </a>
                 
             </div>

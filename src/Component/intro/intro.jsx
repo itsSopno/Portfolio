@@ -6,7 +6,7 @@ import Education from "../Education/Education";
 const Intro = () => {
   return (
     <>
-    <section className="intro-section rounded-tr-4xl rounded-tl-4xl rounded-br-4xl rounded-bl-4xl bg-[#000]">
+    <section className="intro-section rounded-tr-4xl rounded-tl-4xl rounded-br-4xl rounded-bl-4xl ">
       
       {/* LEFT CONTENT */}
       <div className="intro-left">
@@ -58,7 +58,7 @@ const Intro = () => {
         {/* LINKS */}
         <div className="intro-links">
           <motion.a
-            href="nabiltalukderbd@gmail.com"
+            href="mailto:nabiltalukderbd@gmail.com"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

@@ -13,48 +13,48 @@ import Education from "./Component/Education/Education";
 import ProjectTechSection from "./Component/ProjectTechSection/ProjectTechSection";
 import ProjectShowcase from "./Component/ProjectShowcase/ProjectShowcase";
 import ContactSection from "./Component/ContactSection/ContactSection";
-
+import Resume from './resume.pdf'
 function Body() {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (loading) return;
+  // useEffect(() => {
+  //   if (loading) return;
 
-    gsap.registerPlugin(ScrollTrigger);
+  //   gsap.registerPlugin(ScrollTrigger);
 
-    const sections = [".section-two", ".section-three", ".section-four"];
+  //   const sections = [".section-two", ".section-three", ".section-four"];
 
-    const ctx = gsap.context(() => {
-      sections.forEach((section) => {
-        // Advanced "Reveal" Animation
-        gsap.fromTo(
-          section,
-          { 
-            opacity: 0, 
-            y: 100, 
-            scale: 0.95,
-            clipPath: "inset(10% 0% 10% 0%)" // Modern "curtain" reveal effect
-          },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            clipPath: "inset(0% 0% 0% 0%)",
-            duration: 1.5,
-            ease: "expo.out",
-            scrollTrigger: {
-              trigger: section,
-              start: "top 85%",
-              end: "top 40%",
-              scrub: 1, // Smoothly follows scroll
-            },
-          }
-        );
-      });
-    });
+  //   const ctx = gsap.context(() => {
+  //     sections.forEach((section) => {
+  //       // Advanced "Reveal" Animation
+  //       gsap.fromTo(
+  //         section,
+  //         { 
+  //           opacity: 0, 
+  //           y: 100, 
+  //           scale: 0.95,
+  //           clipPath: "inset(10% 0% 10% 0%)" // Modern "curtain" reveal effect
+  //         },
+  //         {
+  //           opacity: 1,
+  //           y: 0,
+  //           scale: 1,
+  //           clipPath: "inset(0% 0% 0% 0%)",
+  //           duration: 1.5,
+  //           ease: "expo.out",
+  //           scrollTrigger: {
+  //             trigger: section,
+  //             start: "top 85%",
+  //             end: "top 40%",
+  //             scrub: 1, // Smoothly follows scroll
+  //           },
+  //         }
+  //       );
+  //     });
+  //   });
 
-    return () => ctx.revert();
-  }, [loading]);
+  //   return () => ctx.revert();
+  // }, [loading]);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 3000);
@@ -130,9 +130,14 @@ function Body() {
     <Link to="projectt" className="px-8 py-3.5 bg-white text-black font-bold rounded-full hover:bg-[#c6ff33] hover:scale-105 transition-all duration-300 shadow-lg uppercase text-xs tracking-widest">
       View Project
     </Link>
-    <button className="px-8 py-3.5 border border-white/20 text-white rounded-full hover:bg-white/5 transition-all duration-300 text-xs tracking-widest uppercase">
-      Download Resume
-    </button>
+  <a 
+  href={Resume}
+  download="Resume_of_Nabil_Hasan.pdf"
+>
+  <button className="px-8 py-3.5 border border-white/20 text-white rounded-full hover:bg-white/5 transition-all duration-300 text-xs tracking-widest uppercase">
+    Download Resume
+  </button>
+</a>
      <Link to="/contact" className="px-8 py-3.5 bg-white text-black font-bold rounded-full hover:bg-[#c6ff33] hover:scale-105 transition-all duration-300 shadow-lg uppercase text-xs tracking-widest">
       Contact
     </Link>

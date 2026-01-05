@@ -78,7 +78,7 @@ const About = () => {
   Email ↗
 </motion.a>
           <motion.a
-            href="https://linkedin.com"
+            href="www.linkedin.com/in/nabil-hasan-sopno"
             target="_blank"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

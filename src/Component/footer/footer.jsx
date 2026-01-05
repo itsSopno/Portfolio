@@ -50,7 +50,7 @@ const Footer = () => {
           <div className="flex gap-4">
             {[
               { Icon: Github, link: "https://github.com/itsSopno" },
-              { Icon: Linkedin, link: "https://linkedin.com/in/yourname" },
+              { Icon: Linkedin, link: "www.linkedin.com/in/nabil-hasan-sopno" },
               { Icon: Mail, link: "nabiltalukderbd@gmail.com" },
             ].map(({ Icon, link }, index) => (
               <motion.a
