@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import "./about.css";
-import image from './IMG_20250913_210855_522.jpg';
 import image2 from './secend.jpeg'
 const About = () => {
   // const [project, setLoading] = useState(null);
@@ -37,10 +36,8 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-        >
-          I’m a <span>MERN Stack Developer(Junior)</span> focused on building scalable,
-          performance-driven web applications with clean architecture and
-          intuitive user experiences.
+        >Hi, I’m Nabil Hasan<br></br>
+          I’m a <span>MERN Stack Developer(Junior)</span> performance-driven web applications with clean architecture and intuitive user experiences.
         </motion.p>
 
         <motion.p
@@ -50,9 +47,7 @@ const About = () => {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
         >
-          I enjoy working across the full stack — from crafting responsive
-          front-end interfaces in React to designing robust backend systems with
-          Node.js, Express, and MongoDB.
+         I work across the full stack — crafting responsive front-end interfaces with React & Tailwind CSS, and building secure, efficient backend systems using Node.js, Express, and MongoDB.
         </motion.p>
 
         <motion.p
@@ -62,8 +57,7 @@ const About = () => {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
         >
-          My goal is to turn complex ideas into reliable, maintainable digital
-          products that deliver real value.
+        I enjoy solving real-world problems and turning complex ideas into reliable, maintainable digital products.
         </motion.p>
 
         {/* LINKS */}

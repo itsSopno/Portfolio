@@ -17,44 +17,44 @@ import Resume from './resume.pdf'
 function Body() {
   const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   if (loading) return;
+  useEffect(() => {
+    if (loading) return;
 
-  //   gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger);
 
-  //   const sections = [".section-two", ".section-three", ".section-four"];
+    const sections = [".section-two", ".section-three", ".section-four"];
 
-  //   const ctx = gsap.context(() => {
-  //     sections.forEach((section) => {
-  //       // Advanced "Reveal" Animation
-  //       gsap.fromTo(
-  //         section,
-  //         { 
-  //           opacity: 0, 
-  //           y: 100, 
-  //           scale: 0.95,
-  //           clipPath: "inset(10% 0% 10% 0%)" // Modern "curtain" reveal effect
-  //         },
-  //         {
-  //           opacity: 1,
-  //           y: 0,
-  //           scale: 1,
-  //           clipPath: "inset(0% 0% 0% 0%)",
-  //           duration: 1.5,
-  //           ease: "expo.out",
-  //           scrollTrigger: {
-  //             trigger: section,
-  //             start: "top 85%",
-  //             end: "top 40%",
-  //             scrub: 1, // Smoothly follows scroll
-  //           },
-  //         }
-  //       );
-  //     });
-  //   });
+    const ctx = gsap.context(() => {
+      sections.forEach((section) => {
+        // Advanced "Reveal" Animation
+        gsap.fromTo(
+          section,
+          { 
+            opacity: 0, 
+            y: 100, 
+            scale: 0.95,
+            clipPath: "inset(10% 0% 10% 0%)" // Modern "curtain" reveal effect
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            clipPath: "inset(0% 0% 0% 0%)",
+            duration: 1.5,
+            ease: "expo.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 85%",
+              end: "top 40%",
+              scrub: 1, // Smoothly follows scroll
+            },
+          }
+        );
+      });
+    });
 
-  //   return () => ctx.revert();
-  // }, [loading]);
+    return () => ctx.revert();
+  }, [loading]);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 3000);
@@ -143,8 +143,9 @@ function Body() {
     </Link>
   </motion.div>
 
-  {/* Background */}
-  <TriangleBG />
+  <footer className="mt-40 text-center">
+        <p className="text-[40px] uppercase tracking-[0.6em] text-gray-800">Scroll</p>
+      </footer>
 </section>
 
         {/* Section Wrapper for Animations */}
