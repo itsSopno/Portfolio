@@ -17,44 +17,7 @@ import Resume from './resume.pdf'
 function Body() {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (loading) return;
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    const sections = [".section-two", ".section-three", ".section-four"];
-
-    const ctx = gsap.context(() => {
-      sections.forEach((section) => {
-        // Advanced "Reveal" Animation
-        gsap.fromTo(
-          section,
-          { 
-            opacity: 0, 
-            y: 100, 
-            scale: 0.95,
-            clipPath: "inset(10% 0% 10% 0%)" // Modern "curtain" reveal effect
-          },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            clipPath: "inset(0% 0% 0% 0%)",
-            duration: 1.5,
-            ease: "expo.out",
-            scrollTrigger: {
-              trigger: section,
-              start: "top 85%",
-              end: "top 40%",
-              scrub: 1, // Smoothly follows scroll
-            },
-          }
-        );
-      });
-    });
-
-    return () => ctx.revert();
-  }, [loading]);
+  
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 3000);
@@ -104,7 +67,7 @@ function Body() {
     animate={{ opacity: 1 }}
     transition={{ duration: 1, delay: 0.3 }}
   >
-    MERN Stack & Frontend Focused
+    MERN Stack & Frontend Developer
   </motion.h2>
 
   {/* Power Description - Highlight Core Strengths */}

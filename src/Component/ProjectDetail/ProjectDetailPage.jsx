@@ -146,6 +146,14 @@ const ProjectDetailPage = () => {
               ))}
             </div>
           </motion.div>
+            <motion.div 
+           animate={{ opacity: [0.3, 1, 0.3] }} 
+           transition={{ duration: 3, repeat: Infinity }}
+           style={{ fontFamily: "Smooch Sans" }}
+           className="text-[30px] uppercase tracking-[0.8em] text-gray-700"
+         >
+           {project.status}
+         </motion.div>
         </motion.section>
       </div>
 

@@ -18,7 +18,7 @@ const Technologies = () => {
   }, [scrollY]);
 
   return (
-    <section className="tech-section h-auto  text-white px-6 sm:px-12 py-20">
+    <section className="tech-section h-auto flex flex-col justify-center iteams-center text-white px-6 sm:px-12 py-20">
       <motion.h2
         className="text-4xl sm:text-5xl font-bold mb-12 text-center"
         initial={{ opacity: 0, y: 50 }}
