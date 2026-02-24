@@ -13,50 +13,34 @@ const RekorderNavbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
-  // Animation variants for the container
   const containerVars = {
-    initial: { width: 0, opacity: 0 },
-    animate: { 
-      width: "auto", 
+    initial: { height: 0, opacity: 0 },
+    animate: {
+      height: "auto",
       opacity: 1,
-      transition: { 
-        width: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
-        opacity: { duration: 0.2 },
-        staggerChildren: 0.1, // This creates the "one-by-one" reveal
-        delayChildren: 0.2
-      }
+      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
     },
-    exit: { 
-      width: 0, 
+    exit: {
+      height: 0,
       opacity: 0,
-      transition: { 
-        width: { duration: 0.3, ease: "easeInOut" },
-        opacity: { duration: 0.1 }
-      }
+      transition: { duration: 0.3 }
     }
   };
 
-  // Animation variants for individual links
-  const itemVars = {
-    initial: { y: 10, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-    exit: { y: 10, opacity: 0 }
-  };
-
   return (
-    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-[100]">
+    <nav className="fixed right-6 top-1/2 -translate-y-1/2 z-[100] flex flex-col items-end gap-4">
       <motion.div
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
-        layout // Smoothly animates the layout change when the pill expands
-        className="flex items-center bg-[#c6ff33] rounded-full px-5 py-2.5 shadow-[0_10px_30px_rgba(198,255,51,0.3)] border border-white/20"
+        className="bg-white/5 backdrop-blur-3xl border border-white/10 rounded-sm p-4 flex flex-col items-center gap-6 shadow-2xl"
       >
-        {/* Brand/Trigger */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="text-black text-sm font-black tracking-tighter select-none px-2"
-        >
-          PORTFOLIO
+        <div className="flex flex-col items-center gap-1 opacity-20">
+          <div className="w-1.5 h-1.5 bg-[#c6ff33] rounded-full animate-pulse" />
+          <div className="w-[1px] h-10 bg-white" />
+        </div>
+
+        <button className="[writing-mode:vertical-lr] rotate-180 text-[10px] font-black tracking-[0.4em] uppercase text-white/40 hover:text-[#c6ff33] transition-colors duration-500">
+          Menu_Access
         </button>
 
         <AnimatePresence>
@@ -66,37 +50,36 @@ const RekorderNavbar = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="overflow-hidden flex items-center"
+              className="flex flex-col gap-6 py-4 overflow-hidden"
             >
-              <div className="h-4 w-[1px] bg-black/20 ml-4 mr-2" /> {/* Divider */}
-              
-              <div className="flex items-center gap-1">
-                {menu.map((item) => {
-                  const active = location.pathname === item.path;
-                  return (
-                    <motion.div key={item.name} variants={itemVars}>
-                      <Link
-                        to={item.path}
-                        className="relative px-4 py-1.5 text-[11px] font-bold tracking-widest uppercase transition-colors"
-                      >
-                        {active && (
-                          <motion.span
-                            layoutId="active-pill"
-                            className="absolute inset-0 bg-black rounded-full"
-                            transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                          />
-                        )}
-                        <span className={`relative z-10 ${active ? "text-[#c6ff33]" : "text-black/70 hover:text-black"}`}>
-                          {item.name}
-                        </span>
-                      </Link>
-                    </motion.div>
-                  );
-                })}
-              </div>
+              {menu.map((item) => {
+                const active = location.pathname === item.path;
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    className="group relative flex items-center justify-center p-2"
+                  >
+                    <span className={`text-[9px] font-black tracking-widest uppercase transition-all duration-500 ${active ? "text-[#c6ff33]" : "text-white/20 group-hover:text-white"} `}>
+                      {item.name}
+                    </span>
+                    {active && (
+                      <motion.div
+                        layoutId="nav-dot"
+                        className="absolute -right-2 w-1 h-1 bg-[#c6ff33] rounded-full"
+                      />
+                    )}
+                  </Link>
+                );
+              })}
             </motion.div>
           )}
         </AnimatePresence>
+
+        <div className="flex flex-col items-center gap-1 opacity-20">
+          <div className="w-[1px] h-10 bg-white" />
+          <div className="w-1.5 h-1.5 border border-white rounded-full" />
+        </div>
       </motion.div>
     </nav>
   );

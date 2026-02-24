@@ -1,141 +1,154 @@
-// 
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import "./education-v2.css";
 
-const reveal = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
-  },
-};
+gsap.registerPlugin(ScrollTrigger);
 
 const EducationAndHobbies = () => {
+  const streamRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(".edu-node", {
+        scrollTrigger: {
+          trigger: ".neural-stream-container",
+          start: "top 80%",
+        },
+        opacity: 0,
+        x: -50,
+        stagger: 0.3,
+        duration: 1,
+        ease: "power2.out"
+      });
+
+      gsap.from(".status-bar-fill", {
+        scrollTrigger: {
+          trigger: ".hobby-analysis-pane",
+          start: "top 70%",
+        },
+        width: 0,
+        duration: 1.5,
+        stagger: 0.2,
+        ease: "expo.out"
+      });
+    }, streamRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const educationData = [
+    {
+      id: "ED_01",
+      title: "Diploma in Engineering",
+      sub: "Computer Science & Technology",
+      inst: "Shariatpur Polytechnic Institute",
+      year: "2022 - PRESENT",
+      tech: "Algorithm Design / Database Architectures",
+      status: "CORE_GROWTH"
+    },
+    {
+      id: "ED_02",
+      title: "MERN Specialization",
+      sub: "Full Stack Development",
+      inst: "Programming Hero",
+      year: "2023 - 2024",
+      tech: "Node.js / React / MongoDB Ecosystem",
+      status: "COMPLETED"
+    }
+  ];
+
+  const hobbyData = [
+    { label: "Tactical Execution", value: "Valorant", percentage: 85, status: "PREDATOR_MINDSET" },
+    { label: "Neural Narratives", value: "RDR2 / Wukong / Tsushima", percentage: 95, status: "DEEP_IMMERSION" },
+    { label: "Digital Culture", value: "Technical Art / Motion Design", percentage: 70, status: "SYNC_ESTABLISHED" }
+  ];
+
   return (
-    <section className="min-h-screen text-white py-32 px-6 font-[400]">
-      <div className="max-w-7xl mx-auto">
-        
+    <section className="education-v2-section">
+      {/* Background Schematic */}
+      <div className="absolute top-0 right-0 w-1/3 h-full border-l border-white/5 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10" ref={streamRef}>
+
         {/* Section Header */}
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          variants={reveal}
-          className="mb-24 overflow-hidden"
-          style={{ fontFamily: "Smooch Sans" }} 
-        >
-          <h1 className="text-[15vw] leading-none uppercase tracking-tighter opacity-10 select-none -mb-10">
-            PROFILE
+        <div className="mb-32">
+          <span className="text-[10px] font-black tracking-[0.5em] text-[#c6ff33] uppercase">Module_04 // Intelligence_Sync</span>
+          <h2 className="text-[12vw] font-black italic leading-[0.7] tracking-tighter uppercase opacity-5 select-none absolute -top-10 -left-6 pointer-events-none" style={{ fontFamily: "Smooch Sans" }}>
+            Education
+          </h2>
+          <h1 className="text-7xl md:text-9xl font-black italic uppercase leading-none mt-4" style={{ fontFamily: "Smooch Sans" }}>
+            Neural<br />Growth Map
           </h1>
-          <div className="flex items-center gap-4">
-            <div className="h-[1px] w-20 bg-lime-400" />
-            <span className="text-xs tracking-[0.6em] text-lime-400 uppercase font-bold">The Blueprint & The Soul</span>
-          </div>
-        </motion.div>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          
-          {/* LEFT COLUMN: EDUCATION & PERSONALITY */}
-          <div className="lg:col-span-7 space-y-12">
-            
-            {/* PERSONALITY STATEMENT - NEW ADDITION */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              variants={reveal}
-               style={{ fontFamily: "Smooch Sans" }} 
-              className="mb-16"
-            >
-              <h2 className="text-2xl tracking-[0.3em] uppercase mb-6 border-b border-white/10 pb-4 w-fit">Personality _</h2>
-              <p className="text-3xl md:text-4xl leading-tight font-light text-zinc-300 italic">
-                "I design with <span className="text-white font-bold">purpose</span>, build with <span className="text-lime-400 font-bold italic">care</span>, and focus on clean, user-first experiences."
-              </p>
-              <p className="mt-6 text-zinc-500 tracking-widest uppercase text-xs">
-                Curious • Detail-focused • UI Enthusiast
-              </p>
-            </motion.div>
+        <div className="neural-stream-container">
+          {/* Timeline Connector */}
+          <div className="data-stream-connector" />
 
-            <h2 className="text-2xl tracking-[0.3em] uppercase mb-10 border-b border-white/10 pb-4 w-fit">Education_Log</h2>
-            
-            {/* SPI Card */}
-            <motion.div 
-              whileHover={{ x: 10 }}
-              className="group p-8 border border-white/5 bg-zinc-950/40 relative overflow-hidden transition-all"
-              style={{ fontFamily: "Smooch Sans" }} 
-            >
-              <div className="absolute top-0 left-0 w-1 h-full bg-lime-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <span className="text-[10px] text-zinc-500 tracking-[0.4em] uppercase">Academic Foundation | 2022 - Present</span>
-              <h3 className="text-3xl md:text-5xl uppercase mt-2 mb-4">Diploma in Engineering</h3>
-              <p className="text-lime-400/80 mb-6 text-sm tracking-widest uppercase font-bold">Computer Science & Technology (CST)</p>
-              <p className="font-sans text-zinc-400 leading-relaxed text-base">
-                Currently honing my technical skills at <span className="text-white">Shariatpur Polytechnic Institute</span>. 
-                My focus lies at the intersection of programming logic, database architecture, and the future of web ecosystems.
-              </p>
-            </motion.div>
-
-            {/* Programming Hero Card */}
-            <motion.div 
-              whileHover={{ x: 10 }}
-              className="group p-8 border border-white/5 bg-zinc-950/40 relative overflow-hidden transition-all"
-              style={{ fontFamily: "Smooch Sans" }} 
-            >
-              <div className="absolute top-0 left-0 w-1 h-full bg-zinc-600 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <span className="text-[10px] text-zinc-500 tracking-[0.4em] uppercase">Professional Skillset</span>
-              <h3 className="text-3xl md:text-5xl uppercase mt-2 mb-4">MERN Stack Developer</h3>
-              <p className="text-zinc-500 mb-6 text-sm tracking-widest uppercase italic underline decoration-zinc-800 underline-offset-8">Programming Hero Certified</p>
-              <p className="font-sans text-zinc-400 leading-relaxed text-base">
-                Transformed from a curious learner to a developer through rigorous, project-based training. 
-                I specialize in crafting <span className="text-white font-medium">high-performance interfaces</span> using React, Node.js, and modern CSS frameworks.
-              </p>
-            </motion.div>
-          </div>
-
-          {/* RIGHT COLUMN: HOBBIES / GAMING */}
-          <div className="lg:col-span-5 space-y-10 lg:mt-32">
-            <h2 className="text-2xl tracking-[0.3em] uppercase mb-10 border-b border-white/10 pb-4 w-fit">Hobby_Systems</h2>
-            
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-              className="bg-lime-400 p-8 rounded-sm text-black flex flex-col justify-between min-h-[450px]"
-              style={{ fontFamily: "Smooch Sans" }} 
-            >
-              <div>
-                <h3 className="text-5xl font-extrabold uppercase leading-none mb-6">Digital_ <br/> Escape</h3>
-                <p className="text-sm font-bold uppercase tracking-widest mb-10 opacity-70">Strategic Thinking & Art Appreciation</p>
-              </div>
-
-              <div className="space-y-6">
-                <div className="border-t border-black/20 pt-6">
-                  <p className="text-[9px] uppercase tracking-widest font-bold mb-2">Competitive_Focus</p>
-                  <p className="text-xl uppercase font-bold tracking-tighter">Valorant (Tactical Precision)</p>
-                </div>
-                
-                <div className="border-t border-black/20 pt-6">
-                  <p className="text-[9px] uppercase tracking-widest font-bold mb-2">Visual_Storytelling (AAA)</p>
-                  <div className="flex flex-col gap-1">
-                    <span className="text-lg uppercase font-bold tracking-tighter leading-none italic">Red Dead Redemption 2</span>
-                    <span className="text-lg uppercase font-bold tracking-tighter leading-none italic">Ghost of Tsushima</span>
-                    <span className="text-lg uppercase font-bold tracking-tighter leading-none italic">Black Myth: Wukong</span>
+          {/* Left Panel: Academic Architecture */}
+          <div className="space-y-10">
+            {educationData.map((edu) => (
+              <div key={edu.id} className="edu-node group">
+                <div className="node-point" />
+                <span className="node-id">{edu.id} // {edu.status}</span>
+                <h3 className="node-title">{edu.title}</h3>
+                <p className="text-[#c6ff33] text-[10px] font-black tracking-[0.2em] uppercase mb-4">{edu.sub}</p>
+                <div className="node-meta-grid">
+                  <div className="meta-field">
+                    <span className="field-label">Institution</span>
+                    <span className="field-value">{edu.inst}</span>
+                  </div>
+                  <div className="meta-field">
+                    <span className="field-label">TechFocus</span>
+                    <span className="field-value">{edu.sub}</span>
+                  </div>
+                  <div className="meta-field">
+                    <span className="field-label">Timeline</span>
+                    <span className="field-value">{edu.year}</span>
                   </div>
                 </div>
               </div>
-              
-              <div className="mt-8 flex justify-between items-end">
-                 <div className="text-[8px] leading-tight font-bold uppercase opacity-60">
-                    Gaming fuels my <br/> attention to detail.
-                 </div>
-                 <span className="text-[8px] border border-black px-2 py-1 font-bold uppercase tracking-widest">Active_Session</span>
-              </div>
-            </motion.div>
-
-            {/* Gaming Quote */}
-            <p className="text-zinc-600 text-[10px] uppercase tracking-[0.5em] leading-relaxed text-center px-4">
-              "Every frame is a choice, every choice is a build."
-            </p>
+            ))}
           </div>
 
+          {/* Right Panel: Hobby Analysis Module */}
+          <div className="hobby-analysis-pane">
+            <div className="analysis-header">
+              <div>
+                <h3 className="text-4xl font-black italic uppercase leading-none" style={{ fontFamily: "Smooch Sans" }}>Sub-System<br />Analysis</h3>
+                <span className="text-[8px] font-mono opacity-30 mt-2 block">SEC_ID: HOBBY_MOD_01</span>
+              </div>
+              <div className="radar-vibe">
+                <div className="radar-sweep" />
+              </div>
+            </div>
+
+            <div className="space-y-12">
+              {hobbyData.map((hobby) => (
+                <div key={hobby.label} className="hobby-module">
+                  <div className="flex justify-between items-end mb-2">
+                    <div>
+                      <span className="field-label block mb-1">{hobby.label}</span>
+                      <h4 className="text-xl font-bold tracking-tighter uppercase text-white/80">{hobby.value}</h4>
+                    </div>
+                    <span className="text-[8px] font-mono text-[#c6ff33]">{hobby.status}</span>
+                  </div>
+                  <div className="status-bar-bg">
+                    <div className="status-bar-fill" style={{ width: `${hobby.percentage}%` }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-20 border-t border-white/5 pt-10 flex justify-between items-center opacity-20">
+              <span className="text-[7px] font-mono">ENCRYPTION: AES_BLUEPRINT</span>
+              <span className="text-[7px] font-mono animate-pulse">CONNECTED</span>
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
   );
