@@ -10,9 +10,11 @@ const DetailPage = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch("https://server-1-1-6g3a.onrender.com/project");
+        const response = await fetch("https://t-mark-4.onrender.com/api/project/all");
         const data = await response.json();
-        setProjects(Array.isArray(data) ? data : [data]);
+        if (data.success) {
+          setProjects(data.projects);
+        }
       } catch (err) {
         console.error(err);
       } finally {
@@ -72,7 +74,7 @@ const ProjectSection = ({ project, index }) => {
           <div className="space-y-6">
             <span className="text-[10px] tracking-[0.5em] text-gray-500 uppercase">Project / 0{index + 1}</span>
             <h2 className="text-6xl md:text-8xl font-normal leading-[0.8] uppercase tracking-tighter">
-              {project.title.split('–')[0]}
+              {project.projectName.split(' - ')[0]}
             </h2>
             <div className="flex gap-4">
               <span className="px-3 py-1 border border-white/20 text-[9px] rounded-full uppercase italic">{project.year}</span>
@@ -82,11 +84,11 @@ const ProjectSection = ({ project, index }) => {
 
           <div className="pt-10 lg:pt-0 space-y-6">
             <p className="text-sm text-gray-400 leading-relaxed font-sans max-w-xs">
-              {project.description}
+              {project.projectDescription}
             </p>
             <div className="flex flex-col gap-3">
-               <a href={project.live} target="_blank" className="text-[10px] tracking-[0.4em] underline decoration-white/20 hover:decoration-white transition-all uppercase">Open_Live_System</a>
-               <a href={project.clientRepo} target="_blank" className="text-[10px] tracking-[0.4em] opacity-40 hover:opacity-100 transition-all uppercase">View_Source_Code</a>
+               <a href={project.projectLiveLink} target="_blank" className="text-[10px] tracking-[0.4em] underline decoration-white/20 hover:decoration-white transition-all uppercase">Open_Live_System</a>
+               <a href={project.projectGitHubLink} target="_blank" className="text-[10px] tracking-[0.4em] opacity-40 hover:opacity-100 transition-all uppercase">View_Source_Code</a>
             </div>
           </div>
         </motion.div>
@@ -102,8 +104,8 @@ const ProjectSection = ({ project, index }) => {
              <motion.img 
                whileHover={{ scale: 1.1 }}
                transition={{ duration: 1 }}
-               src={project.image} 
-               alt={project.title} 
+               src={project.projectImage} 
+               alt={project.projectName} 
                className="w-full h-auto object-cover"
              />
              {/* Overlay Text on Hover */}
@@ -114,7 +116,7 @@ const ProjectSection = ({ project, index }) => {
           
           {/* Tech Stack floating below image */}
           <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2 opacity-30">
-            {project.technology?.map((tech, i) => (
+            {project.Tech?.map((tech, i) => (
               <span key={i} className="text-[9px] uppercase tracking-widest">{tech}</span>
             ))}
           </div>
@@ -131,7 +133,7 @@ const ProjectSection = ({ project, index }) => {
         <div className="max-w-xl">
           <h4 className="text-[9px] tracking-[0.5em] text-gray-600 mb-4 uppercase italic">Technical_Approach</h4>
           <p className="text-xl md:text-3xl font-light leading-[1.2] text-gray-200 uppercase tracking-tighter">
-            {project.use}
+            {project.projectType}
           </p>
         </div>
         <div className="hidden md:block text-[8px] text-gray-800 tracking-[0.5em] vertical-text">

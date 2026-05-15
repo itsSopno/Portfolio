@@ -12,7 +12,9 @@ const ProjectsPage = () => {
     fetch("https://server-1-1-6g3a.onrender.com/project")
       .then((res) => res.json())
       .then((data) => {
-        setProjects(data);
+        if (data.success) {
+          setProjects(data.projects);
+        }
         setIsLoading(false); 
       })
       .catch((err) => {

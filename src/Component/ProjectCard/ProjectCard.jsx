@@ -10,8 +10,8 @@ const ProjectCard = ({ project }) => {
         <motion.img
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-          src={project.image}
-          alt={project.title}
+          src={project.projectImage}
+          alt={project.projectName}
            style={{ fontFamily: "Smooch Sans" }}
           className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
         />
@@ -24,10 +24,10 @@ const ProjectCard = ({ project }) => {
       <div className="mt-8 flex justify-between items-start">
         <div className="max-w-[80%]">
           <h3 className="text-3xl font-bold uppercase tracking-tighter group-hover:italic transition-all">
-            {project.title.split('–')[0]}
+            {project.projectName.split(' - ')[0]}
           </h3>
           <p className="text-sm text-gray-500 mt-2 font-light uppercase tracking-widest leading-tight">
-            {project.technology.slice(0, 3).join(" • ")}
+            {project.Tech.slice(0, 3).join(" • ")}
           </p>
         </div>
         
