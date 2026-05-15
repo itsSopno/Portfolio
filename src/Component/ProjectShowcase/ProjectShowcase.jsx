@@ -17,18 +17,11 @@ const ProjectsPage = () => {
     fetch("https://server-1-1-6g3a.onrender.com/project")
       .then((res) => res.json())
       .then((data) => {
-<<<<<<< HEAD
-        if (data.success) {
-          setProjects(data.projects);
-        }
-        setIsLoading(false); 
-=======
         if (isMounted) {
-          const projectData = Array.isArray(data) ? data : (data.data || [data]);
-          setProjects(projectData);
+          const projectData = data.success ? data.projects : (Array.isArray(data) ? data : (data.data || []));
+          setProjects(Array.isArray(projectData) ? projectData : [projectData]);
           setIsLoading(false);
         }
->>>>>>> 7d76c30eb4258a5690c30edcd6a45ed43d5a1489
       })
       .catch((err) => {
         console.error("Error fetching projects:", err);
