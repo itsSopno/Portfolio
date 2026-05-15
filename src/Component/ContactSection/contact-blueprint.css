@@ -1,0 +1,141 @@
+.contact-blueprint-section {
+    padding: 100px 10vw;
+    background: var(--bg-color);
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.contact-info-panel {
+    padding: 60px;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-form-panel {
+    padding: 60px;
+}
+
+.contact-label {
+    font-family: monospace;
+    font-size: 10px;
+    color: var(--accent-color);
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.contact-title {
+    font-family: 'Smooch Sans', sans-serif;
+    font-size: 100px;
+    font-weight: 900;
+    line-height: 0.8;
+    text-transform: uppercase;
+    font-style: italic;
+    margin-bottom: 40px;
+}
+
+.contact-link-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.contact-link-item:hover {
+    border-color: var(--accent-color);
+    transform: translateX(10px);
+}
+
+.link-icon {
+    font-size: 20px;
+    opacity: 0.3;
+}
+
+.contact-link-item:hover .link-icon {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+.blueprint-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 0;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+    margin-bottom: 40px;
+}
+
+.blueprint-input:focus {
+    border-color: var(--accent-color);
+}
+
+.blueprint-label {
+    font-size: 8px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    opacity: 0.3;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.blueprint-btn {
+    width: 100%;
+    padding: 20px;
+    background: var(--accent-color);
+    color: black;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.blueprint-btn:hover:not(:disabled) {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(198, 255, 51, 0.2);
+}
+
+.blueprint-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 968px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info-panel {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .contact-title {
+        font-size: 60px;
+    }
+}

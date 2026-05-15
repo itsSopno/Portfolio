@@ -1,0 +1,112 @@
+.tech-blueprint-section {
+    padding: 100px 10vw;
+    background: var(--bg-color);
+    position: relative;
+}
+
+.tech-header {
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tech-title {
+    font-family: 'Smooch Sans', sans-serif;
+    font-size: 80px;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-style: italic;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1px;
+    /* background: rgba(255, 255, 255, 0.05); */
+    /* Grid line color */
+    /* border: 1px solid rgba(255, 255, 255, 0.05); */
+}
+
+.tech-node {
+    background: var(--bg-color);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tech-node::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-color);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+}
+
+.tech-node:hover::before {
+    opacity: 0.03;
+}
+
+.tech-node:hover {
+    transform: translateY(-5px);
+    z-index: 10;
+    border-color: var(--accent-color);
+}
+
+.node-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    filter: grayscale(1) opacity(0.4);
+    transition: all 0.5s ease;
+    z-index: 1;
+}
+
+.tech-node:hover .node-icon {
+    filter: grayscale(0) opacity(1);
+    transform: scale(1.1);
+}
+
+.node-name {
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    opacity: 0.2;
+    transition: all 0.5s ease;
+    z-index: 1;
+}
+
+.tech-node:hover .node-name {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+.node-serial {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-family: monospace;
+    font-size: 8px;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+@media (max-width: 640px) {
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

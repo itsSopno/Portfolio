@@ -1,141 +1,114 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import "./about.css";
 import image2 from './secend.jpeg'
 const About = () => {
-  // const [project, setLoading] = useState(null);
-  //  useEffect(() => {fetch("https://server-1-1-6g3a.onrender.com/project")
-  //   .then((res) => res.json())
-  //   .then((data) => { setLoading(data);
-  // }, []);
-
-
- const fadeInUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
-  };
-
   return (
-    <section className="about-section rounded-tr-4xl rounded-tl-4xl rounded-br-4xl rounded-bl-4xl ">
-      
-      {/* LEFT CONTENT */}
-      <div className="about-left">
+    <section className="about-section">
+      <div className="about-header">
         <motion.h1
-          className="about-title"
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="about-title italic"
         >
           INTRO
         </motion.h1>
-
-        <motion.p
-          className="about-text"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-        >Hi, I’m Nabil Hasan<br></br>
-          I’m a <span>MERN Stack Developer(Junior)</span> performance-driven web applications with clean architecture and intuitive user experiences.
-        </motion.p>
-
-        <motion.p
-          className="about-text"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-        >
-         I work across the full stack — crafting responsive front-end interfaces with React & Tailwind CSS, and building secure, efficient backend systems using Node.js, Express, and MongoDB.
-        </motion.p>
-
-        <motion.p
-          className="about-text"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
-        >
-        I enjoy solving real-world problems and turning complex ideas into reliable, maintainable digital products.
-        </motion.p>
-
-        {/* LINKS */}
-        <div className="about-links">
-        <motion.a
-  href="mailto:nabiltalukderbd@gmail.com" 
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
->
-  Email ↗
-</motion.a>
-          <motion.a
-            href="www.linkedin.com/in/nabil-hasan-sopno"
-            target="_blank"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 1, ease: "easeOut" }}
-          >
-            LinkedIn ↗
-          </motion.a>
-          <motion.a
-            href="https://github.com/itsSopno"
-            target="_blank"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 1.2, ease: "easeOut" }}
-          >
-            GitHub ↗
-          </motion.a>
-        </div>
-  <motion.div 
-    variants={fadeInUp} 
-    initial="initial"
-    whileInView="animate"
-    viewport={{ once: true }}
-    className="md:col-span-4 md:col-start-9 p-4"
-  >
-    <h3 className="text-3xl md:text-5xl pt-4 uppercase tracking-widest text-gray-500 mb-8 font-extrabold italic opacity-80">
-      Skills I have
-    </h3>
-
-    {/* Skills Container */}
-    <div className="flex flex-wrap gap-3">
-      {/* এখানে আপনার নির্দিষ্ট স্কিলগুলো সরাসরি বসিয়ে দেওয়া হয়েছে */}
-      {["React JS", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "JWT Authentication"].map((tech, index) => (
-        <motion.span
-          key={index}
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: index * 0.1 }}
-          whileHover={{ scale: 1.1, y: -5 }}
-          className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm md:text-base uppercase tracking-wider text-gray-300 backdrop-blur-sm cursor-default hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 hover:text-white hover:border-transparent transition-all duration-300 shadow-xl"
-        >
-          {tech}
-        </motion.span>
-      ))}
-    </div>
-  </motion.div>
-
+        <span className="about-version">Ver. 4.0.2</span>
       </div>
 
-      {/* RIGHT CONTENT */}
-      <motion.div
-        className="about-right"
-        initial={{ opacity: 0, scale: 0.8, y: 40 }}
-        whileInView={{ opacity: 1, scale: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-      >
-        <div className="image-wrapper">
-          <img src={image2} alt="Profile" />
-        </div>
-      </motion.div>
+      <div className="about-grid">
+        <div className="about-left-side">
+          <div className="about-text-content">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="about-paragraph"
+            >
+              Hi, I’m Nabil Hasan, a <span>MERN Stack Architect</span> specializing in high-performance web applications.
+              I build digital blueprints that bridge the gap between technical precision and fluid user experiences.
+            </motion.p>
 
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="about-paragraph"
+            >
+              I work across the full stack — crafting responsive front-end interfaces with <span>React & Tailwind</span>,
+              and building secure, efficient backend systems using <span>Node.js, Express, and MongoDB</span>.
+            </motion.p>
+
+            <div className="about-stats">
+              <div className="stat-item">
+                <span className="stat-label">Core_Logic</span>
+                <span className="stat-value text-[#c6ff33]">Node.js / React</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-label">Database_Stack</span>
+                <span className="stat-value">MongoDB / SQL</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-label">Auth_Protocol</span>
+                <span className="stat-value">JWT / Firebase</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-label">Dev_Status</span>
+                <span className="stat-value animate-pulse">Available_For_Hire</span>
+              </div>
+            </div>
+
+            <div className="flex gap-8 mt-10">
+              {["GitHub", "LinkedIn", "Email"].map((link) => (
+                <motion.a
+                  key={link}
+                  href="#"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 0.4 }}
+                  whileHover={{ opacity: 1, color: "#c6ff33" }}
+                  className="text-[10px] uppercase font-black tracking-[0.3em] transition-all"
+                >
+                  {link} // ↗
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5 }}
+          className="about-image-side"
+        >
+          <div className="image-frame">
+            <img src={image2} alt="Technical Portrait" />
+            <div className="absolute bottom-6 left-6 flex flex-col gap-1 opacity-50">
+              <span className="text-[8px] font-black uppercase tracking-widest">Subject: Nabil Hasan</span>
+              <span className="text-[8px] font-black uppercase tracking-widest">Type: Full_Stack_Dev</span>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      <div className="mt-40">
+        <h3 className="text-white/20 text-[10px] font-black tracking-[0.5em] uppercase mb-10 border-b border-white/5 pb-4">
+          Integrated_Tech_Stack
+        </h3>
+        <div className="flex flex-wrap gap-4">
+          {["React", "Node", "Tailwind", "GSAP", "Framer", "Express", "Mongo"].map((tech, i) => (
+            <motion.div
+              key={tech}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              className="px-6 py-3 border border-white/5 bg-white/[0.01] text-[10px] font-black uppercase tracking-widest hover:border-[#c6ff33]/50 hover:text-[#c6ff33] transition-all cursor-default"
+            >
+              {tech}
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 };
