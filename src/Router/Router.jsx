@@ -11,6 +11,7 @@ import ProjectPage from "../Optional/ProjectPage.jsx";
 import ContactSection from "../Component/ContactSection/ContactSection.jsx";
 import DetailPage from "../Component/Detailpage/DetailPage.jsx";
  const ErrorWrapper = () => <ErrorPage />;
+
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +26,8 @@ const Router = createBrowserRouter([
      {path: "/contact", element:<ContactSection></ContactSection>},
   
     ],
+
+
   },
 ]);
 
